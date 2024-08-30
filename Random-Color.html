@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Colors</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100&display=swap');
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Kanit', sans-serif;
+        }
+        body{
+            background-color: black;
+        }
+        .main{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            width: 30rem;
+            height: 10rem;
+            border-radius: 10px;
+            font-size: 40px;
+            background-color: white;
+            text-align: center;
+        }
+        button{
+            width: 100%;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            display: block;
+            font-size: 35px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <h2 id="color-id">#000</h2>
+            <button class="btn">click me</button>
+    </div>
+</body>]
+</html>
+<script>
+    var body = $(document).find('body');
+var id = $(document).find('#color-id');
+var btn = $(document).find('button');
+btn.attr("aria-label", "Start or stop color change");
+id.attr("aria-describedby", "description");
+
+var isColorChanging = false;
+var colorChanger;
+
+var getColor = () => {
+    var Rnumber = Math.floor(Math.random() * 16777215);
+    var randomcode = '#' + Rnumber.toString(16);
+    body.css('background-color', randomcode);
+    id.html(randomcode);
+}
+btn.bind('click', function() {
+    getColor();
+});
+
+</script>
